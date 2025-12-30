@@ -23,8 +23,7 @@ This automation validates the **happy path** and critical UI logic **before OTP 
 - Assert **Masuk button enabled state**
 - Trigger **OTP send**
 - Verify **navigation to OTP screen**
-- (Optional) Observe OTP API request for correctness
-
+  
 > OTP verification is intentionally skipped to keep tests **fast, stable, and CI-friendly**.
 
 ---
@@ -35,8 +34,6 @@ This automation validates the **happy path** and critical UI logic **before OTP 
 ✔ Data-driven testing (easy to extend)  
 ✔ CI-ready execution  
 ✔ Clear separation of test logic, data, and environment  
-
-This is how I would structure automation in a **real team environment**.
 
 ---
 
@@ -50,20 +47,10 @@ This is how I would structure automation in a **real team environment**.
 
 ---
 
-## Project Structure (Simplified)
-Profiles/ → environment configuration
-Test Data/ → CSV test fixtures
-Object Repository/ → page objects
-Keywords/ → reusable utilities (API intercept)
-Test Cases/ → test scenarios
-Test Suites/ → execution grouping
-Reports/ → auto-generated results
-
 ## How to Run Locally
 1. Open project in **Katalon Studio**
-2. Select execution profile: **qa**
-3. Run test suite: **TS_Login_Smoke**
-4. Browser: **Chrome**
+2. Run test suite: **Login**
+3. Browser: **Chrome**
 
 ---
 
@@ -71,33 +58,10 @@ Reports/ → auto-generated results
 ```bash
 katalonc -noSplash -runMode=console \
   -projectPath="katalon-login-automation.prj" \
-  -testSuitePath="Test Suites/TS_Login_Smoke" \
+  -testSuitePath="Test Suites/Login" \
   -executionProfile="qa" \
   -browserType="Chrome"
 ```
-
-## Designed to run in:
-- Jenkins
-- GitHub Actions
-- GitLab CI
-
-## Reporting
-After execution, reports are generated automatically:
-- HTML report (human readable)
-- JUnit XML (CI integration)
-
-## Reports include:
-- Execution status
-- Timing
-- Failure details
-- Screenshots on error
-
-## Trade-offs & Limitations
-OTP verification is excluded (belongs to backend / integration testing)
-
-## API mocking is minimal (intercept/log only)
-- Focused on quality over quantity of test cases
-- These trade-offs are deliberate to keep the suite stable and fast.
 
 ## How This Can Be Extended
 - Negative & edge case validation
@@ -107,3 +71,6 @@ OTP verification is excluded (belongs to backend / integration testing)
 
 
 Thanks for reviewing this assessment.
+
+<img width="1906" height="973" alt="image" src="https://github.com/user-attachments/assets/ab174fd1-2369-4e13-9cf4-f6abe1c3d0d6" />
+
